@@ -20,5 +20,11 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+
+	private async void OnButtonClicked(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new MauiSample());
+		
+	}
 }
 
