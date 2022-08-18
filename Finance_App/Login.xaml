@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finance_App.Login"
+             Title="Login">
+    <ScrollView>
+
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="5,0"
+            BackgroundColor="Black">
+
+            <Label                
+                WidthRequest="350"
+                Text="Ahead Of the Game Financial Tracker"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Italic"
+                BackgroundColor="SpringGreen"                              
+                FontSize="32"
+                Margin="0,0,0,100"/>
+
+            <Entry
+                Placeholder="User Name"
+                WidthRequest="350"
+                PlaceholderColor="Black"
+                MaxLength="20"
+                FontSize="20"
+                Margin="0,0,0,20"
+                BackgroundColor="SpringGreen"/>
+
+            <Entry
+                Placeholder="Password"
+                PlaceholderColor="Black"
+                WidthRequest="350"
+                IsPassword="True"
+                MaxLength="20"
+                FontSize="20"
+                Margin="0,0,0,100"
+                BackgroundColor="SpringGreen"/>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Button                
+                    Grid.Row="2"
+                    x:Name="CounterBtn"
+                    Text="Create An Account"                
+                    Clicked="OnCreateAccount"      
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"/>
+
+                <Button
+                    WidthRequest="150"
+                    Margin="20"
+                    Grid.Row="3"
+                    Text="Login"
+                    Clicked="OnButtonClicked"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"/>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

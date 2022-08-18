@@ -8,11 +8,15 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:Login}"
+        Route="Login" />
     <ShellContent
         Title="ChartPage"
         ContentTemplate="{DataTemplate local:MauiSample}"
         Route="MauiSample" />
+    <ShellContent        
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    
 
 </Shell>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finance_App.CreateAnAccount"
+             >
+    <VerticalStackLayout BackgroundColor="Black">
+        <Label                
+                WidthRequest="350"
+                Text="Create An Account"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Italic"
+                BackgroundColor="SpringGreen"                              
+                FontSize="32"
+                 Margin="0,0,0,100"/>
+        <Entry
+                Placeholder="User Name"
+                WidthRequest="350"
+                PlaceholderColor="Black"
+                MaxLength="20"
+                FontSize="20"
+                Margin="0,0,0,20"
+                BackgroundColor="SpringGreen"/>
+
+        <Entry
+                Placeholder="Password"
+                PlaceholderColor="Black"
+                WidthRequest="350"
+                IsPassword="True"
+                MaxLength="20"
+                FontSize="20"
+                Margin="0,0,0,100"
+                BackgroundColor="SpringGreen"/>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button
+                Grid.Row="1"                
+                Text="Submit"
+                Clicked="OnSubmit"
+                Margin="20"/>
+
+            <Button
+                Grid.Row="2"
+                Text="Go Back"
+                Clicked="OnGoBack"
+                Margin="20"/>
+
+        </Grid>
+        
+    </VerticalStackLayout>
+</ContentPage>
