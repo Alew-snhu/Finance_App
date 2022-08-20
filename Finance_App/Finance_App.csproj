@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="LiveCharts" Version="0.9.7" />
 	  <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
 	  <PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-beta.350" />
@@ -66,6 +67,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="CreateAnAccount.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DataLayoutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MauiSample.xaml">

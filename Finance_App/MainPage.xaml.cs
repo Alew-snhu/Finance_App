@@ -9,6 +9,11 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
+	private async void OnNewLog(object sender, EventArgs e)
+	{
+        await Navigation.PushAsync(new DataLayoutPage());
+    }
+
     private async void OnGoBack(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new Login());

@@ -1,0 +1,53 @@
+<ContentPage x:Class="Finance_App.DataLayoutPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:local="clr-namespace:Finance_App;assembly=Finance_App"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.BindingContext>
+        <local:PieChartViewModel/>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+    <lvc:PieChart
+        Series="{Binding Series}" 
+        WidthRequest="300">
+    </lvc:PieChart>
+        <Frame Grid.Row="1">
+            <TableView>
+                <TableRoot>
+                    <TableSection Title="Data">
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                        <TextCell/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </Frame>
+        <Button 
+            Grid.Row="3"
+            WidthRequest="175"
+            HorizontalOptions="Start"
+            Text="Add"/>
+        <Button 
+            Grid.Row="3"
+            WidthRequest="175"
+            HorizontalOptions="End"
+            Text="Go back"
+            Clicked="OnGoBack"/>
+    </Grid>
+</ContentPage>
