@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finance_App.NewEntryPage"
+             Title="NewEntryPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Frame
+               Grid.Row="1" 
+               Grid.ColumnSpan="2" 
+               BorderColor="Blue" 
+               BackgroundColor="White">
+        <Label 
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Text="Add an Entry"       
+            TextDecorations="Underline"
+            HorizontalOptions="Center"
+            FontSize="32"/>
+        </Frame>
+        <Frame Grid.Row="2" 
+               Grid.ColumnSpan="2" 
+               BorderColor="Blue" 
+               BackgroundColor="SpringGreen">
+            <Entry
+                x:Name="ExpenseLocation"
+                Placeholder="Location of expense"
+                PlaceholderColor="LightGray"
+                BackgroundColor="WhiteSmoke"
+                HorizontalTextAlignment="Center"
+                FontSize="20"/>
+        </Frame>
+        <Frame 
+            Grid.Row="3" 
+            Grid.ColumnSpan="2" 
+            BorderColor="Blue" 
+            BackgroundColor="SpringGreen"
+            >
+            
+            <Entry
+                x:Name="ExpenseAmount"
+                Placeholder="Expense amount"
+                PlaceholderColor="LightGray"
+                BackgroundColor="WhiteSmoke"
+                HorizontalTextAlignment="Center"                
+                FontSize="20"/>
+        </Frame>
+        <Frame Grid.Row="4" 
+               Grid.ColumnSpan="2" 
+               BorderColor="Blue" 
+               BackgroundColor="SpringGreen">
+            <DatePicker 
+                x:Name="DatePicker"
+                HorizontalOptions="Center"
+                BackgroundColor="WhiteSmoke"
+                FontSize="20"/>
+        </Frame>
+        <Button
+            Grid.Row="7"
+            Grid.Column="2"
+            VerticalOptions="End"
+            Text="Submit"
+            Clicked="OnSubmit"/>
+        <Button
+            Grid.Row="7"
+            VerticalOptions="End"
+            Text="Back"
+            Clicked="OnGoBack"/>
+    </Grid>
+    
+</ContentPage>

@@ -24,16 +24,8 @@
         <Frame Grid.Row="1">
             <TableView>
                 <TableRoot>
-                    <TableSection Title="Data">
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
-                        <TextCell/>
+                    <TableSection Title="Data" x:Name="DataTable" x:FieldModifier="Public">
+                        <TextCell  ></TextCell>
                     </TableSection>
                 </TableRoot>
             </TableView>
@@ -42,12 +34,14 @@
             Grid.Row="3"
             WidthRequest="175"
             HorizontalOptions="Start"
-            Text="Add"/>
+            Text="Go back"
+            Clicked="OnGoBack"
+            />
         <Button 
             Grid.Row="3"
             WidthRequest="175"
             HorizontalOptions="End"
-            Text="Go back"
-            Clicked="OnGoBack"/>
+            Text="Add"
+            Clicked="AddOne"/>
     </Grid>
 </ContentPage>

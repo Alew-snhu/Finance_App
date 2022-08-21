@@ -7,6 +7,11 @@ public partial class DataLayoutPage : ContentPage
 		InitializeComponent();
 	}
 
+    private async void AddOne(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new NewEntryPage());
+    }
+
     private async void OnGoBack(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage());
