@@ -1,25 +1,24 @@
 namespace Finance_App;
 
+
 public partial class NewEntryPage : ContentPage
 {
+    Entry entry { get; set; } = new Entry();
 	public NewEntryPage()
 	{
-		InitializeComponent();
-	}
+		InitializeComponent();        
+	}    
 
     private async void OnSubmit(object sender, EventArgs e)
     {
-        var location = ExpenseLocation.Text.ToString();
-        var amount = ExpenseAmount.Text.ToString();
+        var location = entry.EntryLocation;
+        var amount = entry.EntryAmount;
         var datePicked = DatePicker.Date.ToShortDateString();
 
-        TextCell textCell = new TextCell();
-        textCell.Text = $"Location:{location} Amount:{amount} Date:{datePicked}";
+        var newEntry = new Entry() { EntryAmount = amount, EntryDate = datePicked, EntryLocation = location };
+        entry.Items.Add(newEntry);
 
-        DataLayoutPage dataLayoutPage = new DataLayoutPage();
-        dataLayoutPage.DataTable.Add(textCell);
-
-        await Navigation.PushAsync(dataLayoutPage);
+        await Navigation.PushAsync(new DataLayoutPage());
 
     }
     private async void OnGoBack(object sender, EventArgs e)

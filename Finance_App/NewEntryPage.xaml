@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Finance_App;assembly=Finance_App"
              x:Class="Finance_App.NewEntryPage"
              Title="NewEntryPage"
              NavigationPage.HasNavigationBar="False">
     <Grid BackgroundColor="Black">
+        <Grid.BindingContext>
+            <local:Entry/>
+        </Grid.BindingContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
@@ -23,13 +27,13 @@
                Grid.ColumnSpan="2" 
                BorderColor="Blue" 
                BackgroundColor="White">
-        <Label 
-            Grid.Row="1"
-            Grid.ColumnSpan="2"
-            Text="Add an Entry"       
-            TextDecorations="Underline"
-            HorizontalOptions="Center"
-            FontSize="32"/>
+            <Label 
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Text="Add an Entry"       
+                TextDecorations="Underline"
+                HorizontalOptions="Center"
+                FontSize="32"/>
         </Frame>
         <Frame Grid.Row="2" 
                Grid.ColumnSpan="2" 
@@ -37,6 +41,7 @@
                BackgroundColor="SpringGreen">
             <Entry
                 x:Name="ExpenseLocation"
+                Text="{Binding EntryLocation, Mode=TwoWay}"
                 Placeholder="Location of expense"
                 PlaceholderColor="LightGray"
                 BackgroundColor="WhiteSmoke"
@@ -52,6 +57,7 @@
             
             <Entry
                 x:Name="ExpenseAmount"
+                Text="{Binding EntryAmount, Mode=TwoWay}"
                 Placeholder="Expense amount"
                 PlaceholderColor="LightGray"
                 BackgroundColor="WhiteSmoke"
@@ -64,6 +70,7 @@
                BackgroundColor="SpringGreen">
             <DatePicker 
                 x:Name="DatePicker"
+                Date="{Binding EntryDate, Mode=TwoWay}"
                 HorizontalOptions="Center"
                 BackgroundColor="WhiteSmoke"
                 FontSize="20"/>

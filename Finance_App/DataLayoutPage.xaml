@@ -2,9 +2,24 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
-             xmlns:local="clr-namespace:Finance_App;assembly=Finance_App"
+             xmlns:local="clr-namespace:Finance_App"
              NavigationPage.HasNavigationBar="False"
              >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="entryTemplate">
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <local:PieChartViewModel/>
     </ContentPage.BindingContext>
@@ -22,13 +37,49 @@
         WidthRequest="300">
     </lvc:PieChart>
         <Frame Grid.Row="1">
-            <TableView>
-                <TableRoot>
-                    <TableSection Title="Data" x:Name="DataTable" x:FieldModifier="Public">
-                        <TextCell  ></TextCell>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
+            <!-- Create ListView -->
+            <ListView x:Name="ListView" x:FieldModifier="Public">
+                <ListView.BindingContext>
+                    <local:Entry/>
+                </ListView.BindingContext>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="OnTapped" x:Name="ViewCell" x:FieldModifier="Public">
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="125" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label                                     
+                                    x:FieldModifier="Public"
+                                    x:Name="EntryLocation"
+                                    Grid.Column="1"                                   
+                                    Text="{Binding EntryLocation, Mode=TwoWay}"                                    
+                                    Margin="5"/>
+
+                                <Label 
+                                   x:Name="_entryAmount"
+                                   Grid.Column="2"
+                                   Text="{Binding EntryAmount, Mode=TwoWay}"
+                                   FontAttributes="Bold"
+                                   Margin="5"/>
+
+                                <Label
+                                   x:Name="entryDate"
+                                   Grid.Column="3"
+                                   Text="{Binding EntryDate, Mode=TwoWay}"
+                                   FontAttributes="Italic"
+                                   Margin="5"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Frame>
         <Button 
             Grid.Row="3"
