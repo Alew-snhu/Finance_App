@@ -9,12 +9,22 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	private async void OnNewLog(object sender, EventArgs e)
+	private async void LoadCurrentMonth(object sender, EventArgs e)
 	{
-        await Navigation.PushAsync(new DataLayoutPage());
+		await Navigation.PushAsync(new DataLayoutPage());
+	}
+
+	private async void CreateNewLog(object sender, EventArgs e)
+	{
+        await Navigation.PushAsync(new CreateNewLog());
     }
 
-    private async void OnGoBack(object sender, EventArgs e)
+	private async void ViewPastEntries(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new PastEntriesPage());
+	}
+
+    private async void LogOut(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new Login());
     }

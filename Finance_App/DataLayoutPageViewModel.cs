@@ -12,6 +12,7 @@ namespace Finance_App
     {
         public DataLayoutPageViewModel()
         {
+
             
         }
                 

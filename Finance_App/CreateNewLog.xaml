@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Finance_App"
+             x:Class="Finance_App.CreateNewLog"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+    <VerticalStackLayout>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Text="Enter the current month and year to start a new finance log"
+                FontSize="25"
+                TextColor="SpringGreen"
+                WidthRequest="350"
+                HorizontalTextAlignment="Center"/>
+            <Entry
+                Grid.Row="1"
+                Placeholder="Month"
+                WidthRequest="350"
+                PlaceholderColor="Black"
+                MaxLength="20"
+                FontSize="20"                
+                BackgroundColor="White"/>
+
+            <Entry
+                Margin="20"
+                Grid.Row="2"
+                Placeholder="Year"
+                PlaceholderColor="Black"
+                WidthRequest="350"                
+                MaxLength="20"
+                FontSize="20"                
+                BackgroundColor="White"/>
+
+            <Button
+                Grid.Row="4"
+                Text="Submit"
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
+                WidthRequest="350" 
+                VerticalOptions="Start"
+                Clicked="Submit"/>
+            <Button
+                Grid.Row="4"
+                Text="Go Back"
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
+                WidthRequest="350" 
+                VerticalOptions="End"
+                Clicked="GoBack"/>
+            
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

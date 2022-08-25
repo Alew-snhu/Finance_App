@@ -4,22 +4,7 @@
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              xmlns:local="clr-namespace:Finance_App"
              NavigationPage.HasNavigationBar="False"
-             >
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <DataTemplate x:Key="entryTemplate">
-                <ViewCell>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*" />
-                            <ColumnDefinition Width="0.2*" />
-                            <ColumnDefinition Width="0.3*" />
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+             BackgroundColor="SpringGreen">
     <ContentPage.BindingContext>
         <local:PieChartViewModel/>
     </ContentPage.BindingContext>
@@ -36,9 +21,9 @@
         Series="{Binding Series}" 
         WidthRequest="300">
     </lvc:PieChart>
-        <Frame Grid.Row="1">
+        <Frame Grid.Row="1" BackgroundColor="Black">
             <!-- Create ListView -->
-            <ListView x:Name="ListView" x:FieldModifier="Public">
+            <ListView x:Name="ListView" x:FieldModifier="Public" BackgroundColor="SpringGreen">
                 <ListView.BindingContext>
                     <local:Entry/>
                 </ListView.BindingContext>
@@ -57,7 +42,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label                                     
                                     x:FieldModifier="Public"
-                                    x:Name="EntryLocation"
+                                    x:Name="EntryLocation"                                    
                                     Grid.Column="1"                                   
                                     Text="{Binding EntryLocation, Mode=TwoWay}"                                    
                                     Margin="5"/>

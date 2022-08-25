@@ -4,32 +4,40 @@
              x:Class="Finance_App.Login"
              Title="Login"
              NavigationPage.HasNavigationBar="False">
-    <ScrollView>
+    
+    <VerticalStackLayout        
+        BackgroundColor="Black">
+        <Grid>
 
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="5,0"
-            BackgroundColor="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
 
             <Label                
+                Grid.Row="0"
                 WidthRequest="350"
                 Text="Ahead Of the Game Financial Tracker"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Italic"
                 BackgroundColor="SpringGreen"                              
                 FontSize="32"
-                Margin="0,0,0,100"/>
+                Margin="0,100,0,100"/>
 
             <Entry
+                Grid.Row="1"
                 Placeholder="User Name"
                 WidthRequest="350"
                 PlaceholderColor="Black"
                 MaxLength="20"
                 FontSize="20"
                 Margin="0,0,0,20"
-                BackgroundColor="SpringGreen"/>
+                BackgroundColor="White"/>
 
             <Entry
+                Grid.Row="2"
                 Placeholder="Password"
                 PlaceholderColor="Black"
                 WidthRequest="350"
@@ -37,35 +45,29 @@
                 MaxLength="20"
                 FontSize="20"
                 Margin="0,0,0,100"
-                BackgroundColor="SpringGreen"/>
+                BackgroundColor="White"/>
 
-            <Grid>
+            <Button
+                Grid.Row="3"                
+                Text="Create An Account" 
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
+                WidthRequest="350"
+                
+                               
+                Clicked="OnCreateAccount"      
+                VerticalOptions="Start"/>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+            <Button
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
+                WidthRequest="350"                
+                Grid.Row="3"
+                Text="Login"
+                Clicked="OnButtonClicked"
+                VerticalOptions="End"/>
 
-                <Button                
-                    Grid.Row="2"
-                    x:Name="CounterBtn"
-                    Text="Create An Account"                
-                    Clicked="OnCreateAccount"      
-                    VerticalOptions="End"
-                    HorizontalOptions="Center"/>
-
-                <Button
-                    WidthRequest="150"
-                    Margin="20"
-                    Grid.Row="3"
-                    Text="Login"
-                    Clicked="OnButtonClicked"
-                    VerticalOptions="End"
-                    HorizontalOptions="Center"/>
-
-            </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
+        </Grid>
+    </VerticalStackLayout>
+    
 </ContentPage>

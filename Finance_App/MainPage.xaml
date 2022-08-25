@@ -15,26 +15,39 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
             <Button
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
+                Margin="20"
+                Text="View The Current Months Finances"
+                Clicked="LoadCurrentMonth"/>
+            <Button
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
                 Margin="20"
                 Grid.Row="1"
                 Text="Create New Log"
-                Clicked="OnNewLog"/>
+                Clicked="CreateNewLog"/>
 
             <Button
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
                 Margin="20"
                 Grid.Row="2"
                 Text="View Past Entries"
-                Clicked="OnGoBack"/>
+                Clicked="ViewPastEntries"/>
 
             <Button
+                BackgroundColor="SpringGreen"
+                TextColor="Black"
                 Margin="20"
                 Grid.Row="3"
                 Text="Log Out"
-                Clicked="OnGoBack"/>
+                Clicked="LogOut"/>
         </Grid>
     </VerticalStackLayout>
 

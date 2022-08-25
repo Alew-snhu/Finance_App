@@ -10,81 +10,75 @@
             <local:Entry/>
         </Grid.BindingContext>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="125"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Frame
-               Grid.Row="1" 
-               Grid.ColumnSpan="2" 
-               BorderColor="Blue" 
-               BackgroundColor="White">
-            <Label 
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Text="Add an Entry"       
-                TextDecorations="Underline"
-                HorizontalOptions="Center"
-                FontSize="32"/>
-        </Frame>
-        <Frame Grid.Row="2" 
-               Grid.ColumnSpan="2" 
-               BorderColor="Blue" 
-               BackgroundColor="SpringGreen">
-            <Entry
-                x:Name="ExpenseLocation"
-                Text="{Binding EntryLocation, Mode=TwoWay}"
-                Placeholder="Location of expense"
-                PlaceholderColor="LightGray"
-                BackgroundColor="WhiteSmoke"
-                HorizontalTextAlignment="Center"
-                FontSize="20"/>
-        </Frame>
-        <Frame 
-            Grid.Row="3" 
-            Grid.ColumnSpan="2" 
-            BorderColor="Blue" 
-            BackgroundColor="SpringGreen"
-            >
-            
-            <Entry
-                x:Name="ExpenseAmount"
-                Text="{Binding EntryAmount, Mode=TwoWay}"
-                Placeholder="Expense amount"
-                PlaceholderColor="LightGray"
-                BackgroundColor="WhiteSmoke"
-                HorizontalTextAlignment="Center"                
-                FontSize="20"/>
-        </Frame>
-        <Frame Grid.Row="4" 
-               Grid.ColumnSpan="2" 
-               BorderColor="Blue" 
-               BackgroundColor="SpringGreen">
-            <DatePicker 
-                x:Name="DatePicker"
-                Date="{Binding EntryDate, Mode=TwoWay}"
-                HorizontalOptions="Center"
-                BackgroundColor="WhiteSmoke"
-                FontSize="20"/>
-        </Frame>
-        <Button
-            Grid.Row="7"
-            Grid.Column="2"
+
+        <Label 
+            Grid.Row="0"            
+            Text="Add an Entry"       
+            TextColor="SpringGreen"                
+            HorizontalOptions="Center"
+            FontSize="32"/>
+
+        <Entry
+            Grid.Row="1"            
+            x:Name="ExpenseLocation"
+            Text="{Binding EntryLocation, Mode=TwoWay}"
+            Placeholder="Location of expense"
+            PlaceholderColor="Black"
+            BackgroundColor="WhiteSmoke"
+            Margin="5"
+            WidthRequest="350"
+            FontSize="20"/>
+
+        <Entry
+            Grid.Row="2"            
+            x:Name="ExpenseAmount"
+            Text="{Binding EntryAmount, Mode=TwoWay}"
+            Placeholder="Expense amount"
+            PlaceholderColor="Black"
+            BackgroundColor="WhiteSmoke"
+            Margin="5"
+            WidthRequest="350"               
+            FontSize="20"/>
+
+        <Label
+            Grid.Row="4"            
+            BackgroundColor="White"
+            Text="Tap to open the date picker"            
+            HorizontalOptions="Center"
+            Margin="0,0,0,50"/>
+        <DatePicker 
+            Grid.Row="4"            
+            x:Name="DatePicker"
+            Date="{Binding EntryDate, Mode=TwoWay}"
             VerticalOptions="End"
+            HorizontalOptions="Center"
+            BackgroundColor="WhiteSmoke"     
+            Margin="0,0,0,50"
+            FontSize="20"/>
+
+        <Button
+            BackgroundColor="SpringGreen"
+            TextColor="Black"
+            Grid.Row="5"                        
             Text="Submit"
+            VerticalOptions="Start"
+            WidthRequest="350"  
             Clicked="OnSubmit"/>
         <Button
-            Grid.Row="7"
-            VerticalOptions="End"
+            BackgroundColor="SpringGreen"
+            TextColor="Black"
+            Grid.Row="6"            
             Text="Back"
+            VerticalOptions="End"
+            WidthRequest="350"  
             Clicked="OnGoBack"/>
     </Grid>
     
