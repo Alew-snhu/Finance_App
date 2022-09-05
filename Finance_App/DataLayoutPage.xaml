@@ -1,13 +1,11 @@
 <ContentPage x:Class="Finance_App.DataLayoutPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
              xmlns:local="clr-namespace:Finance_App"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="SpringGreen">
-    <ContentPage.BindingContext>
-        <local:PieChartViewModel/>
-    </ContentPage.BindingContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
@@ -17,10 +15,26 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-    <lvc:PieChart
-        Series="{Binding Series}" 
-        WidthRequest="300">
-    </lvc:PieChart>
+        
+        <chart:SfCircularChart Grid.Row="0">
+            <chart:SfCircularChart.Title>
+                <Label HorizontalTextAlignment="Center" Text="PRODUCT SALES"/>
+            </chart:SfCircularChart.Title>
+            <chart:SfCircularChart.BindingContext>
+                <local:MauiSampleViewModel/>
+            </chart:SfCircularChart.BindingContext>
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend Placement="Bottom"/>
+            </chart:SfCircularChart.Legend>
+            <chart:DoughnutSeries
+                ItemsSource="{Binding Data}"                
+                ShowDataLabels="True" 
+                XBindingPath="Product" 
+                EnableTooltip="True" 
+                YBindingPath="SalesRate"
+                IsVisibleOnLegend="True"/>
+        </chart:SfCircularChart>
+        
         <Frame Grid.Row="1" BackgroundColor="Black">
             <!-- Create ListView -->
             <ListView x:Name="ListView" x:FieldModifier="Public" BackgroundColor="SpringGreen">

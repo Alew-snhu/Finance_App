@@ -1,21 +1,57 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:Finance_App;assembly=Finance_App"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
-             x:Class="Finance_App.MauiSample"
-             Title="ChartPage"
-             >
+    
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+    xmlns:local="clr-namespace:Finance_App;assembly=Finance_App"                                 
+    x:Class="Finance_App.MauiSample"             
+    Title="ChartPage">
 
-    <ContentPage.BindingContext>
-        <local:MauiSampleViewModel/>
-    </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <Grid>
-            <lvc:CartesianChart
-                Series="{Binding Series}">
-            </lvc:CartesianChart>
-        </Grid>
-    </ContentPage.Content>
+    <Grid BindingContext="local:MauiSample">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="275"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <chart:SfCircularChart Grid.Row="0">
+            <chart:SfCircularChart.Title>
+                <Label HorizontalTextAlignment="Center" Text="PRODUCT SALES"/>
+            </chart:SfCircularChart.Title>
+            <chart:SfCircularChart.BindingContext>
+                <local:MauiSampleViewModel/>
+            </chart:SfCircularChart.BindingContext>
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend Placement="Bottom"/>
+            </chart:SfCircularChart.Legend>
+            <chart:DoughnutSeries
+                ItemsSource="{Binding Data}"                
+                ShowDataLabels="True" 
+                XBindingPath="Product" 
+                EnableTooltip="True" 
+                YBindingPath="SalesRate"
+                IsVisibleOnLegend="True"/>
+        </chart:SfCircularChart>
+        <Frame             
+            Grid.Row="1"
+            Background="Black">
+            <syncfusion:SfDataGrid               
+               SelectionMode="SingleDeselect"
+                BackgroundColor="SpringGreen"
+                Margin="0, 0, 0, 0"
+                HorizontalOptions="Center"                       
+                x:Name="dataGrid">
+                <syncfusion:SfDataGrid.DefaultStyle>
+                    <syncfusion:DataGridStyle SelectionBackground="#E3F2FD"/>
+                </syncfusion:SfDataGrid.DefaultStyle>
+            </syncfusion:SfDataGrid>
+        </Frame>
+        <Button
+            Grid.Row="3"
+            BackgroundColor="SpringGreen"
+            TextColor="Black"
+            Text="Go Back"
+            Clicked="GoBack"/>
+    </Grid>
 </ContentPage>

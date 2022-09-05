@@ -53,7 +53,7 @@
                 BackgroundColor="SpringGreen"
                 TextColor="Black"
                 WidthRequest="350"                                               
-                Clicked="OnSubmit"      
+                      
                 VerticalOptions="Start"/>
 
             <Button
